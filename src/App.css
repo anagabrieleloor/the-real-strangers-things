@@ -3,40 +3,121 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  padding-top: 10rem;
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+  
+
+#navbar {
+display: flex;
+background-color: #fd9cce;
+
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 6px 6px #f7ffe4, -1.5em 0 .4em #e4fffe;
+  position: fixed; 
+  top: 0;
+  left: 0; 
+  right: 0; 
+
+
+  padding: 0.875rem 2rem;
+  /* padding: 14px;
+  justify-content: space-evenly;*/
+  
+  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#navbar h1 {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#navbar-links {
+  display: flex;
 }
 
-.card {
-  padding: 2em;
+
+#navbar a {
+
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 0.875rem 1rem;
+  text-decoration: none;
+  margin-left: 1rem;
+  
 }
 
-.read-the-docs {
-  color: #888;
+#navbar a:hover{
+  background-color: #2bfa9a;
+}
+
+#posts{
+  justify-content: space-between;
+  flex-direction: column;
+  /* grid-template-columns: repeat(3, 1fr); */
+  width: 20rem;
+  margin-top: 3rem ;
+
+  padding: 2rem;
+  text-align: center;
+  background-color: #ffc3e2;
+  border: 2px solid#e5e4ff;
+  border-radius: 40px;
+  box-shadow: 6px 6px #f7ffe4, -1.5em 0 .4em #e4fffe;
+ 
+  
+  
+  
+}
+
+#postandsearch{
+  margin-top: 5rem;
+  display: flex;
+  background-color: #ffacd7;
+  height: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rem;
+  box-shadow: 6px 6px #f7ffe4, -1.5em 0 .4em #e4fffe;
+  position: fixed; 
+  top: 0;
+  left: 0; 
+  right: 0; 
+
+
+  padding: 0.875rem 2rem;
+}
+
+#home {
+  justify-content: space-between;
+  flex-direction: column;
+  /* grid-template-columns: repeat(3, 1fr); */
+  width: 20rem;
+  
+  padding: 2rem;
+  text-align: center;
+  background-color: #ffc3e2;
+  border: 2px solid#e5e4ff;
+  border-radius: 40px;
+  box-shadow: 6px 6px #f7ffe4, -1.5em 0 .4em #e4fffe;
+ 
+}
+
+#form {
+  justify-content: space-between;
+  flex-direction: column;
+  /* grid-template-columns: repeat(3, 1fr); */
+  width: 20rem;
+  margin: 3rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #ffc3e2;
+  border: 2px solid#e5e4ff;
+  border-radius: 40px;
+  box-shadow: 6px 6px #f7ffe4, -1.5em 0 .4em #e4fffe;
+ 
 }

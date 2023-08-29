@@ -1,15 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { deletePost } from "../API";
+import { newPost } from "../API";
 
 
 
-export default function PostListName({ post }) {
+export default function PostListName({ post, setPosts }) {
   const navigate = useNavigate();
 
   async function handleDelete(event) {
     event.preventDefault();
-    // const isLoggedIn = this.state.isLoggedIn;
+
     try {
       const result = await deletePost(post.id);
       console.log(result);
@@ -18,6 +19,13 @@ export default function PostListName({ post }) {
       console.error(error);
     }
   }
+
+
+
+
+
+
+
   // async function handleEdit() {
   //   event.preventDefault();
   //   // const isLoggedIn = this.state.isLoggedIn;
@@ -31,22 +39,16 @@ export default function PostListName({ post }) {
   // }
 
   return (
-    <div>
+    <div id="posts">
       <figure>
-        <div className="item" key={post.id}>
+        <div className="item" key={post._id}>
           <p>{post.username}</p>
           <h3>{post.title}</h3>
           <p>{post.description}</p>
           <p>Price: {post.price}</p>
           <p>Location: {post.location}</p>
        
-        <button
-        onClick={() => {
-          navigate(`/${post.id}`);
-        }}
-      >
-        See Details
-      </button>
+
     </div>
     </figure>
            <button onClick={handleDelete}>Delete</button>

@@ -17,7 +17,7 @@ export async function fetchPosts() {
 
   export async function fetchSinglePost(id) {
     try {
-      //${id} comes from the front end and the URL
+     
       const response = await fetch(`${BASE_URL}/posts/${id}`);
       const result = await response.json();
       return result;

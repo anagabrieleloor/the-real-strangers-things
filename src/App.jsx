@@ -5,8 +5,9 @@ import Register from "./components/Register"
 import SinglePost from "./components/SinglePost";
 import Navbar from "./components/Nav";
 import Login from "./components/Login";
+import NewPostForm from "./components/NewPostForm";
 import React, { useState } from "react";
-// import Login from "./components/Login";
+import { Link } from "react-router-dom";
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
     <Routes>
     <Route path="/" element={<Home />} />
         <Route path="/posts" element={<AllPosts />} />
+        <Route path='/newpost' element={<NewPostForm />} />
+      <Route path='/signup' element={<Register />} />
       </Routes>
     </div>
   )
@@ -28,10 +31,11 @@ function App() {
 function Home() {
   const [token, setToken] = useState(null);
   return (
-    <div>
+    <div id="home">
       login and signup maybe
-      <Register />
+      {/* <Register /> */}
       <Login token={token} setToken={setToken} />
+      <Link to ="/signup">new? sign up</Link>
       
     </div>
   )

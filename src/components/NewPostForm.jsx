@@ -33,10 +33,11 @@ export default function NewPostForm({ posts, setPosts }) {
   }
 
   return (
-    <div>
+    <div id="form">
    
     <form onSubmit={handleSubmit}>
       {error && <p>{error}</p>}
+      <h2>create a new post</h2>
       <label>item: </label>
         <input 
         value={title}

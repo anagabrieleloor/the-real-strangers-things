@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { fetchPosts } from "../API";
 import PostListName from "./PostListName";
 import NewPostForm from "./NewPostForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import {Link} from "react-router-dom";
 
 
 export default function AllPosts() {
@@ -29,7 +31,7 @@ export default function AllPosts() {
     : posts;
   return (
     <div>
-      <div id="postsandsearch">
+      <div id="postandsearch">
         <h3>Posts:</h3>
         <label>
           Search:{" "}
@@ -39,6 +41,7 @@ export default function AllPosts() {
             onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
           />
         </label>
+        {/* <Link to ="/newpost">Make A New Post</Link> */}
       </div>
       <NewPostForm posts={posts} setPosts={setPosts} />
       {error && <p>{error}</p>}
