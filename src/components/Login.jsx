@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Authenticate from "./Authenticate";
+import { useNavigate } from "react-router-dom";
 
 const COHORT_NAME = "2306-GHP-ET-WEB-FT-SF";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
@@ -7,6 +8,7 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 export default function Login({ token, setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function loginUser(event) {
     event.preventDefault();
@@ -26,7 +28,8 @@ export default function Login({ token, setToken }) {
       const result = await response.json();
     //   setToken(result.data.token); // Update the token state
     console.log(result);
-    return result
+    // return result
+    navigate("/posts");
     } catch (err) {
       console.error(err);
     }

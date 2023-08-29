@@ -12,12 +12,12 @@ export default function NewPostForm({ posts, setPosts }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const APIData = await newPost(/*name, breed*/);
+    const APIData = await newPost(title, description, price, deliver);
     if (APIData.success) {
-      console.log("New Post: ", APIData.data.newPost);
+      console.log("New Post: ", APIData.data.post);
 
       // Resetting all players manually
-      const newPostList = [...posts, APIData.data.newPost];
+      const newPostList = [...posts, APIData.data.post];
       setPosts(newPostList);
 
     //   setName("");

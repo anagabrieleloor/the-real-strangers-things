@@ -7,7 +7,7 @@ import { deletePost } from "../API";
 export default function PostListName({ post }) {
   const navigate = useNavigate();
 
-  async function handleDelete() {
+  async function handleDelete(event) {
     event.preventDefault();
     // const isLoggedIn = this.state.isLoggedIn;
     try {

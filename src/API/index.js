@@ -26,9 +26,9 @@ export async function fetchPosts() {
     }
   };
 
-  export async function newPost(/*username, password maybe?*/) {
+  export async function newPost(title, description, price, willDeliver) {
     try {
-      // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGVkMmNlMzIxZDlkYjAwMTQ2YTBkZjQiLCJ1c2VybmFtZSI6Im9rIiwiaWF0IjoxNjkzMjY1MTIzfQ.Tj3wv66zfgJGje3kGgDFfNHI1nvAAELkS7APtVWYDj4"
+
       const response = await fetch(`${BASE_URL}/posts`, {
         method: "POST",
         headers: {
@@ -37,10 +37,10 @@ export async function fetchPosts() {
         },
         body: JSON.stringify({
             post: {
-                title: "My favorite stuffed animal",
-                description: "Very nice",
-                price: "$480.00",
-                willDeliver: true
+                title: title,
+                description: description,
+                price: price,
+                willDeliver: willDeliver,
         }
     })
       });
