@@ -16,12 +16,10 @@ export default function NewPostForm({ posts, setPosts }) {
     if (APIData.success) {
       console.log("New Post: ", APIData.data.post);
 
-      // Resetting all players manually
       const newPostList = [...posts, APIData.data.post];
       setPosts(newPostList);
 
-    //   setName("");
-    //   setBreed("");
+
     setTitle("");
     setDescription("");
     setPrice("");
@@ -71,8 +69,8 @@ export default function NewPostForm({ posts, setPosts }) {
         onChange={() => {
             setDeliver(!deliver);
           }} /> <br />
-        <button>Submit</button>
-        <button onClick={() => window.location.reload(true)}>Refresh</button>
+        <button>submit</button>
+        <button onClick={() => window.location.reload(true)}>reset</button>
         </form>
         </div>
   );

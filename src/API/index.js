@@ -132,12 +132,10 @@ export async function fetchPosts() {
     }
   }
 
-  export async function updatePost(title, description, price, location, willDeliver) {
+  export async function updatePost(title, description, price, location, willDeliver, postId) {
     try {
-      // You will need to insert a variable into the fetch template literal 
-      // in order to make the POST_ID dynamic. 
-      // 5e8d1bd48829fb0017d2233b is just for demonstration.
-      const response = await fetch(`${BASE_URL}/posts/${POST_ID}`, {
+
+      const response = await fetch(`${BASE_URL}/posts/${postId}`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',
@@ -149,7 +147,7 @@ export async function fetchPosts() {
             description: description,
             price: price,
             location: location,
-            willDeliver: true
+            willDeliver: willDeliver
           }
         })
       });

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { deletePost } from "../API";
 import { newPost } from "../API";
 import { useState } from "react";
+import { updatePost } from "../API";
 
 const COHORT = "2306-ghp-et-web-ft-sf";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT}`;
@@ -47,17 +48,37 @@ export default function PostListName({ post, setPosts }) {
 
 
 
-  async function handleEdit() {
-    event.preventDefault();
-    // const isLoggedIn = this.state.isLoggedIn;
-    try {
-      const result = await updatePost();
-      console.log(result);
-      navigate("/AllPosts");
-    } catch (error) {
-      console.error(error);
+async function handleEdit(posts) {
+  try {
+    const updatedPost = await updatePost(
+      post.title,        
+      post.description,  
+      post.price,        
+      post.location,     
+      post.willDeliver,  
+      post._id           
+    );
+
+    if (updatedPost.success) {
+      
+      const postIndex = posts.findIndex(p => p._id === post._id);
+      if (postIndex !== -1) {
+       
+        const updatedPostCopy = { ...posts[postIndex], ...updatedPost.data.post };
+      
+        const updatedPosts = [...posts];
+        updatedPosts[postIndex] = updatedPostCopy;
+        setPosts(updatedPosts);
+
+        navigate("/posts");
+      }
+    } else {
+      console.error(updatedPost.error.message);
     }
+  } catch (error) {
+    console.error(error);
   }
+}
 
   return (
     <div id="posts">
@@ -73,8 +94,8 @@ export default function PostListName({ post, setPosts }) {
         </div>
       </figure>
       {successMessage && <p className="success-message">{successMessage}</p>}
-      <button onClick={() => handleDelete(post._id)}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
+      <button onClick={() => handleDelete(post._id)}>delete</button>
+      <button onClick={handleEdit}>edit</button>
     </div>
   );
 }

@@ -16,9 +16,9 @@ export default function Login({ token, setToken }) {
       const response = await login(username, password);
 
       if (response.success) {
-        setToken(response.data.token); // Set the token in the state
-        console.log(response.data.message); // Display success message
-        navigate("/posts"); // Navigate to the posts page on successful login
+        setToken(response.data.token);
+        console.log(response.data.message);  
+        navigate("/posts"); 
       } else if (response.error) {
         console.error(response.error);
       }

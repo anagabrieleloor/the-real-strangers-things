@@ -5,7 +5,7 @@ import { fetchSinglePost } from "../API";
 import PostDetail from "./PostDetail";
 
 export default function SinglePost() {
-  //Deconstruction of id lets us hook into the params of the URL
+
   const { id } = useParams();
 
   const [post, setPost] = useState(null);

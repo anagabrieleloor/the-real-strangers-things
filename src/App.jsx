@@ -32,7 +32,7 @@ function Home() {
   const [token, setToken] = useState(null);
   return (
     <div id="home">
-      login and signup maybe
+      <h2>&hearts; welcome &hearts;</h2>
       {/* <Register /> */}
       <Login token={token} setToken={setToken} />
       <Link to ="/signup">new? sign up</Link>
