@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Authenticate from "./Authenticate";
 import { useNavigate } from "react-router-dom";
+import { login } from "../API";
 
-const COHORT_NAME = "2306-GHP-ET-WEB-FT-SF";
-const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
+
 
 export default function Login({ token, setToken }) {
   const [username, setUsername] = useState("");
@@ -13,23 +13,15 @@ export default function Login({ token, setToken }) {
   async function loginUser(event) {
     event.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/users/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: {
-            username,
-            password,
-          },
-        }),
-      });
-      const result = await response.json();
-    //   setToken(result.data.token); // Update the token state
-    console.log(result);
-    // return result
-    navigate("/posts");
+      const response = await login(username, password);
+
+      if (response.success) {
+        setToken(response.data.token); // Set the token in the state
+        console.log(response.data.message); // Display success message
+        navigate("/posts"); // Navigate to the posts page on successful login
+      } else if (response.error) {
+        console.error(response.error);
+      }
     } catch (err) {
       console.error(err);
     }

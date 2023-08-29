@@ -53,11 +53,12 @@ export async function fetchPosts() {
     }
   }
   
-  export async function deletePost() {
+  export async function deletePost(token, postId) {
     try {
-      const response = await fetch(`${BASE_URL}/posts/64ed434b21d9db00146d566d`, {
+      const response = await fetch(`${BASE_URL}/posts/${postId}`, {
         method: "DELETE",
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         }
       });
@@ -160,19 +161,3 @@ export async function fetchPosts() {
     }
   }
 
-  // export default async function deletePost() {
-  //   try {
-  //     const response = await fetch(`${BASE_URL}/posts/${POST_ID}`, {
-  //       method: "DELETE",
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${token}`
-  //       }
-  //     });
-  //     const result = await response.json();
-  //     console.log(result);
-  //     return result
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }

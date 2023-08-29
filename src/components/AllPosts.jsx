@@ -46,7 +46,7 @@ export default function AllPosts() {
       <NewPostForm posts={posts} setPosts={setPosts} />
       {error && <p>{error}</p>}
       {postsToDisplay.map((post) => {
-        return <PostListName key={post.id} post={post} token={token} />;
+        return <PostListName key={post.id} post={post} setPosts={setPosts} token={token} />;
       })}
     </div>
   );
