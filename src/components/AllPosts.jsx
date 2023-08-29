@@ -3,10 +3,12 @@ import { fetchPosts } from "../API";
 import PostListName from "./PostListName";
 import NewPostForm from "./NewPostForm";
 
+
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [searchParam, setSearchParam] = useState("");
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGVkMmNlMzIxZDlkYjAwMTQ2YTBkZjQiLCJ1c2VybmFtZSI6Im9rIiwiaWF0IjoxNjkzMjY1MTIzfQ.Tj3wv66zfgJGje3kGgDFfNHI1nvAAELkS7APtVWYDj4"
 
   useEffect(() => {
     async function getAllPosts() {
@@ -22,7 +24,7 @@ export default function AllPosts() {
 
   const postsToDisplay = searchParam
     ? posts.filter((post) =>
-        post.content.toLowerCase().includes(searchParam)
+        post.title.toLowerCase().includes(searchParam)
       )
     : posts;
   return (
@@ -41,7 +43,7 @@ export default function AllPosts() {
       <NewPostForm posts={posts} setPosts={setPosts} />
       {error && <p>{error}</p>}
       {postsToDisplay.map((post) => {
-        return <PostListName key={post.id} post={post} />;
+        return <PostListName key={post.id} post={post} token={token} />;
       })}
     </div>
   );

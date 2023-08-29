@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { newPost } from "../API";
 
+
 export default function NewPostForm({ posts, setPosts }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [deliver, setDeliver] = useState(false);
   const [error, setError] = useState(null);
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -31,6 +33,8 @@ export default function NewPostForm({ posts, setPosts }) {
   }
 
   return (
+    <div>
+   
     <form onSubmit={handleSubmit}>
       {error && <p>{error}</p>}
       <label>item: </label>
@@ -67,6 +71,8 @@ export default function NewPostForm({ posts, setPosts }) {
             setDeliver(!deliver);
           }} /> <br />
         <button>Submit</button>
+        <button onClick={() => window.location.reload(true)}>Refresh</button>
         </form>
+        </div>
   );
 }

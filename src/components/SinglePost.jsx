@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchSinglePost } from "../API";
 import PostDetail from "./PostDetail";
 
-export default function SinglePlayer() {
+export default function SinglePost() {
   //Deconstruction of id lets us hook into the params of the URL
   const { id } = useParams();
 
@@ -15,7 +15,7 @@ export default function SinglePlayer() {
     async function getSinglePost() {
       const APIResponse = await fetchSinglePost(id);
       if (APIResponse.success) {
-        setPlayer(APIResponse.data.post);
+        setPost(APIResponse.data.post);
       } else {
         setError(error.message);
       }
@@ -26,7 +26,7 @@ export default function SinglePlayer() {
   return (
     <div>
       {error && <p>{error}</p>}
-      {player && <PostDetail post={post} />}
+      {post && <PostDetail post={post} />}
     </div>
   );
 }

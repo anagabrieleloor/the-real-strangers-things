@@ -1,12 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import AllPosts from "./components/AllPosts";
-
+import Register from "./components/Register"
 import SinglePost from "./components/SinglePost";
 import Navbar from "./components/Nav";
+import Login from "./components/Login";
+import React, { useState } from "react";
+// import Login from "./components/Login";
 
 
 function App() {
+  
 
 
   return (
@@ -22,9 +26,13 @@ function App() {
 }
 
 function Home() {
+  const [token, setToken] = useState(null);
   return (
     <div>
       login and signup maybe
+      <Register />
+      <Login token={token} setToken={setToken} />
+      
     </div>
   )
 }
